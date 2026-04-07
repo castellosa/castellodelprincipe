@@ -9,7 +9,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-:root{--bg:#f4f2ed;--ink:#1a1a18;--mid:#7a7368;--rule:rgba(26,26,24,0.15);--mono:'Courier Prime','Courier New',monospace;--disp:'Special Elite','Courier New',monospace}
+:root{--bg:#f4f2ed;--ink:#1a1a18;--mid:#7a7368;--rule:rgba(26,26,24,0.15);--green:#32553b;--mono:'Courier Prime','Courier New',monospace;--disp:'Special Elite','Courier New',monospace}
 body{background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:16px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 .top-bar{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.4rem}
 .top-bar-l{font-family:var(--disp);font-size:.95rem;letter-spacing:.2em;color:var(--ink)}
@@ -17,19 +17,19 @@ body{background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:16p
 .page{max-width:640px;margin:0 auto;padding:0 1.4rem 4rem}
 .hero{text-align:center;padding:3rem 0 2.5rem;border-bottom:1px solid var(--rule);margin-bottom:2.5rem}
 .ed{font-size:.58rem;letter-spacing:.45em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:1rem}
-.dt{font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:.8rem}
+.dt{font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:.8rem}
 h1{font-family:var(--disp);font-size:clamp(1.6rem,7vw,2.4rem);letter-spacing:.12em;text-transform:uppercase;line-height:1.15;margin-bottom:.5rem}
 .loc{font-size:.75rem;letter-spacing:.28em;color:var(--mid);text-transform:uppercase;display:block;margin-bottom:2rem}
-.orari-box{display:inline-block;border:1px solid var(--ink);padding:.8rem 2rem}
-.orari-lbl{font-size:.55rem;letter-spacing:.45em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:.35rem}
-.orari-t{font-size:.82rem;letter-spacing:.18em;color:var(--ink);line-height:1.9}
-.sh{font-size:.56rem;letter-spacing:.55em;text-transform:uppercase;color:var(--mid);display:flex;align-items:center;gap:.8rem;margin-bottom:.4rem}
-.sh::before,.sh::after{content:'';flex:1;height:1px;background:var(--rule)}
+.orari-box{display:inline-block;border:1px solid var(--green);padding:.8rem 2rem}
+.orari-lbl{font-size:.55rem;letter-spacing:.45em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:.35rem}
+.orari-t{font-size:.82rem;letter-spacing:.18em;color:var(--green);line-height:1.9}
+.sh{font-size:.56rem;letter-spacing:.55em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:.8rem;margin-bottom:.4rem}
+.sh::before,.sh::after{content:'';flex:1;height:1px;background:rgba(50,85,59,0.25)}
 ul.prog{list-style:none;margin-top:1.4rem}
 ul.prog li{padding:1.7rem 0;border-bottom:1px solid var(--rule)}
 ul.prog li:first-child{border-top:1px solid var(--rule)}
 .pi-ih{display:flex;align-items:baseline;flex-wrap:wrap;gap:.4rem .9rem;margin-bottom:.5rem}
-.pi-time{font-size:.72rem;letter-spacing:.15em;color:var(--ink);text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
+.pi-time{font-size:.72rem;letter-spacing:.15em;color:var(--green);text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(50,85,59,0.4);white-space:nowrap}
 .pi-name{font-weight:700;font-size:.9rem;letter-spacing:.03em;color:var(--ink);line-height:1.3}
 .pi-desc{font-size:.83rem;color:var(--mid);line-height:1.82}
 .pi-desc em{color:var(--ink);font-style:italic}
@@ -44,11 +44,11 @@ ul.comp li::before{content:'— ';color:var(--mid)}
 .info-block:first-of-type{border-top:1px solid var(--rule);margin-top:1.2rem}
 .info-label{font-size:.58rem;letter-spacing:.4em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:.5rem}
 .info-text{font-size:.85rem;color:var(--ink);line-height:1.8}
-.info-text a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
-.map-btn{display:inline-block;margin-top:.8rem;border:1px solid var(--ink);padding:.45rem 1.1rem;font-family:var(--mono);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--ink);text-decoration:none}
+.info-text a{color:var(--green);text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(50,85,59,0.4)}
+.map-btn{display:inline-block;margin-top:.8rem;border:1px solid var(--green);padding:.45rem 1.1rem;font-family:var(--mono);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--green);text-decoration:none}
 .social-row{display:flex;gap:1rem;margin-top:.8rem;flex-wrap:wrap}
-.soc-link{border:1px solid var(--rule);padding:.4rem 1rem;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);text-decoration:none}
-footer{margin-top:3.5rem;padding-top:1.8rem;border-top:1px solid var(--rule);text-align:center}
+.soc-link{border:1px solid var(--green);padding:.4rem 1rem;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);text-decoration:none}
+footer{margin-top:3.5rem;padding-top:1.8rem;border-top:1px solid rgba(50,85,59,0.25);text-align:center}
 .ft-main{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);line-height:2}
 .ft-sub{margin-top:.45rem;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mid)}
 </style>
@@ -85,8 +85,8 @@ footer{margin-top:3.5rem;padding-top:1.8rem;border-top:1px solid var(--rule);tex
       <p class="pi-desc">Fotografie storiche del castello e del territorio, integrate con documenti, testi e aneddoti d'epoca. Un percorso visivo attraverso la <em>memoria del luogo</em>.</p>
     </li>
     <li>
-      <div class="pi-ih"><span class="pi-time">tutto il giorno</span><span class="pi-name">apertura straordinaria del loggiato</span></div>
-      <p class="pi-desc">Uno spazio <em>normalmente inaccessibile</em> apre le sue porte: il loggiato con vista sul mare, belvedere di straordinaria bellezza architettonica.</p>
+      <div class="pi-ih"><span class="pi-time">tutto il giorno</span><span class="pi-name">apertura ufficiale del loggiato</span></div>
+      <p class="pi-desc">Il loggiato con vista sul mare apre ufficialmente al pubblico. Uno spazio che entra a far parte di una <em>programmazione culturale permanente</em>, che ogni anno cresce e si consolida.</p>
     </li>
     <li>
       <div class="pi-ih"><span class="pi-time">tutto il giorno</span><span class="pi-name">angoli informativi</span></div>
@@ -121,23 +121,19 @@ footer{margin-top:3.5rem;padding-top:1.8rem;border-top:1px solid var(--rule);tex
       <p class="info-text">
         Per informazioni è possibile contattarci telefonicamente o via email.<br><br>
         <a href="tel:+390982096091">0982 96091</a><br>
-        <a href="mailto:info@castellosangineto.com">info@castellosangineto.com</a>
+        <a href="/cdn-cgi/l/email-protection#80e9eee6efc0e3e1f3f4e5ececeff3e1eee7e9eee5f4efaee3efed"><span class="__cf_email__" data-cfemail="a8c1c6cec7e8cbc9dbdccdc4c4c7dbc9c6cfc1c6cddcc786cbc7c5">[email&#160;protected]</span></a>
       </p>
     </div>
     <div class="info-block">
       <span class="info-label">Seguici</span>
       <div class="social-row">
-        <a class="soc-link" href="https://www.facebook.com/profile.php?id=61580203630111" target="_blank">Facebook</a>
         <a class="soc-link" href="https://www.instagram.com/castellodelprincipe" target="_blank">Instagram</a>
+        <a class="soc-link" href="https://www.facebook.com/profile.php?id=61580203630111" target="_blank">Facebook</a>
       </div>
     </div>
   </div>
 
   <footer>
-    <p class="ft-main">Castello del Principe<br>Sangineto Lido · Calabria · 24 Maggio 2026</p>
+    <p class="ft-main">Castello del Principe<br>Sangineto Lido · CS · Calabria · 24 Maggio 2026</p>
     <p class="ft-sub">XVI Giornata Nazionale delle Dimore Storiche · A.D.S.I.</p>
   </footer>
-
-</div>
-</body>
-</html>
