@@ -9,95 +9,47 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-:root{
-  --bg:#f4f2ed;--ink:#1a1a18;--mid:#7a7368;
-  --rule:rgba(26,26,24,0.15);--green:#32553b;
-  --mono:'Courier Prime','Courier New',monospace;
-  --disp:'Special Elite','Courier New',monospace;
-}
-
-/* ── PROGRESS BAR ── */
-#progress-bar{
-  position:fixed;top:0;left:0;height:2px;width:0%;
-  background:var(--green);z-index:200;
-  transition:width .1s linear;
-}
-
-/* ── PAGE FADE IN ── */
-body{
-  background:var(--bg);color:var(--ink);
-  font-family:var(--mono);font-size:16px;line-height:1.75;
-  overflow-x:hidden;-webkit-font-smoothing:antialiased;
-  opacity:0;animation:pagein .6s ease forwards .1s;
-}
-@keyframes pagein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-
-/* ── TOP BAR ── */
-.top-bar{
-  position:sticky;top:0;z-index:100;
-  background:var(--bg);border-bottom:1px solid var(--rule);
-  display:flex;justify-content:space-between;align-items:center;
-  padding:.9rem 1.4rem;
-}
+:root{--bg:#f4f2ed;--ink:#1a1a18;--mid:#7a7368;--rule:rgba(26,26,24,0.15);--green:#32553b;--mono:'Courier Prime','Courier New',monospace;--disp:'Special Elite','Courier New',monospace}
+#progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--green);z-index:200;transition:width .08s linear}
+body{background:var(--bg);color:var(--ink);font-family:var(--mono);font-size:16px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased;opacity:0;transition:opacity .7s ease}
+body.loaded{opacity:1}
+.top-bar{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.4rem}
 .top-bar-l{font-family:var(--disp);font-size:.95rem;letter-spacing:.2em;color:var(--ink)}
 .top-bar-r{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--mid)}
-
-/* ── PAGE ── */
 .page{max-width:640px;margin:0 auto;padding:0 1.4rem 4rem}
-
-/* ── HERO ── */
 .hero{text-align:center;padding:3rem 0 2.5rem;border-bottom:1px solid var(--rule);margin-bottom:2.5rem}
-.ed{font-size:.58rem;letter-spacing:.45em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:1rem}
+.ed{font-size:.48rem;letter-spacing:.35em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:1rem;white-space:nowrap}
 .dt{font-size:.7rem;letter-spacing:.35em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:.8rem}
-h1{font-family:var(--disp);font-size:clamp(1.6rem,7vw,2.4rem);letter-spacing:.12em;text-transform:uppercase;line-height:1.15;margin-bottom:.5rem;min-height:1.5em}
-.loc{font-size:.75rem;letter-spacing:.28em;color:var(--mid);text-transform:uppercase;display:block;margin-bottom:2rem}
-
-/* ── ORARI ── */
-.orari-box{display:inline-block;border:1px solid var(--green);padding:.8rem 2rem;margin-bottom:2rem}
+h1{font-family:var(--disp);font-size:clamp(1.6rem,7vw,2.4rem);letter-spacing:.12em;text-transform:uppercase;line-height:1.15;margin-bottom:.5rem;min-height:3rem}
+.cursor{display:inline-block;width:2px;height:1em;background:var(--ink);margin-left:2px;vertical-align:middle;animation:blink .8s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.loc{font-size:.75rem;letter-spacing:.28em;color:var(--mid);text-transform:uppercase;display:block;margin-bottom:1.5rem}
+.countdown{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1.5rem;margin-top:1.6rem;margin-bottom:.8rem}
+.cd-unit{text-align:center}
+.cd-minus{font-family:var(--mono);font-size:1rem;color:var(--green);margin-right:.4rem;line-height:1;vertical-align:middle}
+.cd-num{font-family:var(--disp);font-size:1.6rem;letter-spacing:.05em;color:var(--green);display:block;line-height:1}
+.cd-lbl{font-size:.5rem;letter-spacing:.4em;text-transform:uppercase;color:var(--mid);display:block;margin-top:.3rem}
+.cd-sep{font-family:var(--disp);font-size:1.4rem;color:var(--rule);align-self:flex-start;padding-top:.1rem}
+.orari-box{display:inline-block;border:1px solid var(--green);padding:.8rem 2rem}
 .orari-lbl{font-size:.55rem;letter-spacing:.45em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:.35rem}
 .orari-t{font-size:.82rem;letter-spacing:.18em;color:var(--green);line-height:1.9}
-
-/* ── COUNTDOWN ── */
-.countdown{
-  display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:center;
-  margin-top:1.8rem;padding-top:1.8rem;
-  border-top:1px solid var(--rule);
-}
-.cd-block{text-align:center}
-.cd-num{
-  font-family:var(--disp);font-size:clamp(1.4rem,5vw,2rem);
-  color:var(--ink);display:block;line-height:1;
-}
-.cd-lbl{font-size:.5rem;letter-spacing:.4em;text-transform:uppercase;color:var(--mid);display:block;margin-top:.3rem}
-
-/* ── SECTION HEAD ── */
 .sh{font-size:.56rem;letter-spacing:.55em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:.8rem;margin-bottom:.4rem}
 .sh::before,.sh::after{content:'';flex:1;height:1px;background:rgba(50,85,59,0.25)}
-
-/* ── PROGRAM ── */
 ul.prog{list-style:none;margin-top:1.4rem}
-ul.prog li{
-  padding:1.7rem 0;border-bottom:1px solid var(--rule);
-  opacity:0;transform:translateY(18px);
-  transition:opacity .5s ease,transform .5s ease;
-}
-ul.prog li.in{opacity:1;transform:none}
+ul.prog li{padding:1.7rem 0;border-bottom:1px solid var(--rule);opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease}
 ul.prog li:first-child{border-top:1px solid var(--rule)}
+ul.prog li.in{opacity:1;transform:none}
 .pi-ih{display:flex;align-items:baseline;flex-wrap:wrap;gap:.4rem .9rem;margin-bottom:.5rem}
 .pi-time{font-size:.72rem;letter-spacing:.15em;color:var(--green);text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(50,85,59,0.4);white-space:nowrap}
 .pi-name{font-weight:700;font-size:.9rem;letter-spacing:.03em;color:var(--ink);line-height:1.3}
 .pi-desc{font-size:.83rem;color:var(--mid);line-height:1.82}
 .pi-desc em{color:var(--ink);font-style:italic}
-
-/* ── CONCERT BOX ── */
 .cbox{margin-top:1rem;border:1px solid var(--rule);padding:1rem 1.2rem}
 .clab{font-size:.54rem;letter-spacing:.45em;text-transform:uppercase;color:var(--mid);display:block;margin-bottom:.65rem}
 ul.comp{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.2rem 0;margin-bottom:.85rem}
 ul.comp li{font-size:.78rem;color:var(--ink)}
 ul.comp li::before{content:'— ';color:var(--mid)}
 .ccollab{font-size:.7rem;color:var(--mid);font-style:italic;line-height:1.75;border-top:1px solid var(--rule);padding-top:.8rem}
-
-/* ── INFO ── */
 .info-section{margin-top:3rem}
 .info-block{padding:1.5rem 0;border-bottom:1px solid var(--rule)}
 .info-block:first-of-type{border-top:1px solid var(--rule);margin-top:1.2rem}
@@ -107,8 +59,6 @@ ul.comp li::before{content:'— ';color:var(--mid)}
 .map-btn{display:inline-block;margin-top:.8rem;border:1px solid var(--green);padding:.45rem 1.1rem;font-family:var(--mono);font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--green);text-decoration:none}
 .social-row{display:flex;gap:1rem;margin-top:.8rem;flex-wrap:wrap}
 .soc-link{border:1px solid var(--green);padding:.4rem 1rem;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);text-decoration:none}
-
-/* ── FOOTER ── */
 footer{margin-top:3.5rem;padding-top:1.8rem;border-top:1px solid rgba(50,85,59,0.25);text-align:center}
 .ft-main{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);line-height:2}
 .ft-sub{margin-top:.45rem;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mid)}
@@ -128,17 +78,21 @@ footer{margin-top:3.5rem;padding-top:1.8rem;border-top:1px solid rgba(50,85,59,0
   <section class="hero">
     <span class="ed">XVI Giornata Nazionale delle Dimore Storiche</span>
     <span class="dt">Domenica 24 Maggio 2026</span>
-    <h1 id="typewriter"></h1>
+    <h1><span id="typewriter"></span><span class="cursor" id="cursor"></span></h1>
     <span class="loc">Sangineto Lido · Calabria</span>
+
     <div class="orari-box">
       <span class="orari-lbl">Ingresso Libero</span>
       <div class="orari-t">10:00 — 13:00<br>14:30 — 18:30</div>
     </div>
-    <div class="countdown">
-      <div style="width:100%;text-align:center;margin-bottom:.8rem;font-size:.58rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green)">mancano all'evento</div>
-      <div class="cd-block"><span class="cd-num" id="cd-g">--</span><span class="cd-lbl">giorni</span></div>
-      <div class="cd-block"><span class="cd-num" id="cd-o">--</span><span class="cd-lbl">ore</span></div>
-      <div class="cd-block"><span class="cd-num" id="cd-m">--</span><span class="cd-lbl">minuti</span></div>
+
+    <div class="countdown" id="countdown">
+      <div style="width:100%;text-align:center;margin-bottom:.6rem;font-size:.55rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green)">mancano all'evento</div>
+      <div class="cd-unit"><span class="cd-num" id="cd-g">--</span><span class="cd-lbl">giorni</span></div>
+      <span class="cd-sep">·</span>
+      <div class="cd-unit"><span class="cd-num" id="cd-o">--</span><span class="cd-lbl">ore</span></div>
+      <span class="cd-sep">·</span>
+      <div class="cd-unit"><span class="cd-num" id="cd-m">--</span><span class="cd-lbl">minuti</span></div>
     </div>
   </section>
 
@@ -191,6 +145,7 @@ footer{margin-top:3.5rem;padding-top:1.8rem;border-top:1px solid rgba(50,85,59,0
         Per informazioni è possibile contattarci telefonicamente o via email.<br><br>
         <a href="tel:+390982096091">0982 96091</a><br>
         <span id="em"></span>
+        <script>var u='info',d='castellosangineto.com';document.getElementById('em').innerHTML='<a href="mailto:'+u+'@'+d+'" style="color:var(--green);text-decoration:underline;text-underline-offset:4px">'+u+'@'+d+'</a>';</script>
       </p>
     </div>
     <div class="info-block">
@@ -210,60 +165,66 @@ footer{margin-top:3.5rem;padding-top:1.8rem;border-top:1px solid rgba(50,85,59,0
 </div>
 
 <script>
-// EMAIL
-var u='info',d='castellosangineto.com';
-document.getElementById('em').innerHTML='<a href="mailto:'+u+'@'+d+'" style="color:var(--green);text-decoration:underline;text-underline-offset:4px">'+u+'@'+d+'</a>';
+// PAGE LOAD FADE
+window.addEventListener('load', function() {
+  document.body.classList.add('loaded');
+});
 
 // TYPEWRITER
-(function(){
-  var txt='Castello del Principe', el=document.getElementById('typewriter'), i=0;
-  function type(){
-    if(i<=txt.length){el.textContent=txt.substring(0,i);i++;setTimeout(type,i===1?400:70);}
+var txt = 'Castello del Principe';
+var el = document.getElementById('typewriter');
+var cur = document.getElementById('cursor');
+var i = 0;
+function type() {
+  if (i <= txt.length) {
+    el.textContent = txt.slice(0, i);
+    i++;
+    setTimeout(type, i === txt.length + 1 ? 800 : 80);
+  } else {
+    cur.style.display = 'none';
   }
-  type();
-})();
+}
+setTimeout(type, 400);
 
 // COUNTDOWN
-function updateCountdown(){
-  var target=new Date('2026-05-24T10:00:00');
-  var now=new Date();
-  var diff=target-now;
-  if(diff<=0){
-    document.getElementById('cd-g').textContent='0';
-    document.getElementById('cd-o').textContent='0';
-    document.getElementById('cd-m').textContent='0';
+function updateCountdown() {
+  var target = new Date('2026-05-24T10:00:00');
+  var now = new Date();
+  var diff = target - now;
+  if (diff <= 0) {
+    document.getElementById('countdown').innerHTML = '<span style="font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--green)">oggi</span>';
     return;
   }
-  var days=Math.floor(diff/(1000*60*60*24));
-  var hours=Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-  var mins=Math.floor((diff%(1000*60*60))/(1000*60));
-  document.getElementById('cd-g').textContent=days;
-  document.getElementById('cd-o').textContent=hours;
-  document.getElementById('cd-m').textContent=mins;
+  var giorni = Math.floor(diff / 86400000);
+  var ore = Math.floor((diff % 86400000) / 3600000);
+  var minuti = Math.floor((diff % 3600000) / 60000);
+  document.getElementById('cd-g').textContent = giorni;
+  document.getElementById('cd-o').textContent = String(ore).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(minuti).padStart(2,'0');
 }
 updateCountdown();
-setInterval(updateCountdown,30000);
+setInterval(updateCountdown, 30000);
+
+// PROGRESS BAR
+var bar = document.getElementById('progress-bar');
+window.addEventListener('scroll', function() {
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  var pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+  bar.style.width = pct + '%';
+});
 
 // SCROLL ANIMATIONS
-var items=document.querySelectorAll('ul.prog li');
-var obs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting){
-      var i=Array.from(items).indexOf(e.target);
-      setTimeout(function(){e.target.classList.add('in');},i*80);
+var items = document.querySelectorAll('ul.prog li');
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      var idx = Array.from(items).indexOf(e.target);
+      setTimeout(function() { e.target.classList.add('in'); }, idx * 80);
       obs.unobserve(e.target);
     }
   });
-},{threshold:0.08});
-items.forEach(function(el){obs.observe(el);});
-
-// PROGRESS BAR
-var bar=document.getElementById('progress-bar');
-window.addEventListener('scroll',function(){
-  var s=document.documentElement.scrollTop||document.body.scrollTop;
-  var h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  bar.style.width=(s/h*100)+'%';
-});
+}, { threshold: 0.08 });
+items.forEach(function(el) { obs.observe(el); });
 </script>
 </body>
 </html>
